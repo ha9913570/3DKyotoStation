@@ -5,9 +5,9 @@ using UnityEngine.Rendering;
 
 public class MoveCamera : MonoBehaviour
 {
-    [SerializeField] private float cameraMoveSpeed = 0.05f;
+    [SerializeField] private float cameraMoveSpeed = 0.08f;
     [SerializeField] private float cameraRotateSpeed = 0.1f;
-    [SerializeField] private float cameraZoomSpeed = 1.5f;
+    [SerializeField] private float cameraZoomSpeed = 2.5f;
     private Vector3 previousMousePos;
     private bool isLeftDragging = false;
     private bool isRightDragging = false;
@@ -77,8 +77,8 @@ public class MoveCamera : MonoBehaviour
             Vector3 currentMousePos = Mouse.current.position.ReadValue();
             Vector3 mousePosDiff = currentMousePos - previousMousePos;
 
-            angleX += mousePosDiff.x * cameraRotateSpeed * -1;
-            angleY += mousePosDiff.y * cameraRotateSpeed;
+            angleX += mousePosDiff.x * cameraRotateSpeed;
+            angleY += mousePosDiff.y * cameraRotateSpeed * -1;
             if (angleX % 360f > 180f)
             {
                 angleX -= 360f;

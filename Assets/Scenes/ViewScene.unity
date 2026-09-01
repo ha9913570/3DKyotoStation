@@ -172,7 +172,8 @@ PrefabInstance:
       value: "\u4EAC\u90FD\u99C5"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8540425677655477338, guid: 54792a7250568c445bdeae3c36726f95, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54792a7250568c445bdeae3c36726f95, type: 3}
@@ -282,9 +283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44a56e3440de7be49a2158f2896fe5df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  cameraMoveSpeed: 0.05
+  cameraMoveSpeed: 0.08
   cameraRotateSpeed: 0.1
-  cameraZoomSpeed: 1.5
+  cameraZoomSpeed: 2.5
 --- !u!114 &748854687
 MonoBehaviour:
   m_ObjectHideFlags: 0
