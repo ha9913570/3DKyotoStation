@@ -30,25 +30,17 @@ public class MoveCamera : MonoBehaviour
             return;
         }
 
+        UpdateMouseDragStatus();
         CameraMove();
         CameraRotate();
         CameraZoom();
+        previousMousePos = Mouse.current.position.ReadValue();
     }
 
     // 左クリックをドラッグしたときにカメラを移動させる関数
     private void CameraMove()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            isLeftDragging = true;
-            previousMousePos = Mouse.current.position.ReadValue();
-        }
-        if (Mouse.current.leftButton.wasReleasedThisFrame)
-        {
-            isLeftDragging = false;
-        }
-
-        if (isLeftDragging)
+        if (isRightDragging)
         {
             Vector3 currentMousePos = Mouse.current.position.ReadValue();
             Vector3 mousePosDiff = currentMousePos - previousMousePos;
@@ -62,23 +54,13 @@ public class MoveCamera : MonoBehaviour
     // 右クリックをドラッグしたときにカメラを回転させる関数
     private void CameraRotate()
     {
-        if (Mouse.current.rightButton.wasPressedThisFrame)
-        {
-            isRightDragging = true;
-            previousMousePos = Mouse.current.position.ReadValue();
-        }
-        if (Mouse.current.rightButton.wasReleasedThisFrame)
-        {
-            isRightDragging = false;
-        }
-
-        if (isRightDragging)
+        if (isLeftDragging)
         {
             Vector3 currentMousePos = Mouse.current.position.ReadValue();
             Vector3 mousePosDiff = currentMousePos - previousMousePos;
 
-            angleX += mousePosDiff.x * cameraRotateSpeed;
-            angleY += mousePosDiff.y * cameraRotateSpeed * -1;
+            angleX += mousePosDiff.x * cameraRotateSpeed * -1;
+            angleY += mousePosDiff.y * cameraRotateSpeed;
             if (angleX % 360f > 180f)
             {
                 angleX -= 360f;
@@ -94,5 +76,28 @@ public class MoveCamera : MonoBehaviour
     {
         float scroll = Mouse.current.scroll.ReadValue().y;
         transform.Translate(transform.forward * scroll * cameraZoomSpeed, Space.World);
+    }
+
+    // マウスのドラッグクリックの状態を変更する関数
+    private void UpdateMouseDragStatus()
+    {
+        if (Mouse.current.rightButton.wasPressedThisFrame)
+        {
+            isRightDragging = true;
+
+        }
+        else if (Mouse.current.rightButton.wasReleasedThisFrame)
+        {
+            isRightDragging = false;
+        }
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            isLeftDragging = true;
+
+        }
+        else if (Mouse.current.leftButton.wasReleasedThisFrame)
+        {
+            isLeftDragging = false;
+        }
     }
 }
