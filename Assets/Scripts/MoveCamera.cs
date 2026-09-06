@@ -1,7 +1,5 @@
-using UnityEditor.SpeedTree.Importer;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 
 public class MoveCamera : MonoBehaviour
 {
@@ -46,8 +44,6 @@ public class MoveCamera : MonoBehaviour
             Vector3 mousePosDiff = currentMousePos - previousMousePos;
 
             transform.Translate(-mousePosDiff * cameraMoveSpeed, Space.Self);
-
-            previousMousePos = currentMousePos;
         }
     }
 
@@ -66,8 +62,6 @@ public class MoveCamera : MonoBehaviour
                 angleX -= 360f;
             }
             transform.eulerAngles = new Vector3(angleY, angleX, 0f);
-
-            previousMousePos = currentMousePos;
         }
     }
 
