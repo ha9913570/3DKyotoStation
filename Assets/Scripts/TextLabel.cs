@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TextLabel : MonoBehaviour
 {
+    private const int TEXT_LABEL_LOD_DISTANCE = 10000;
     List<GameObject> gameObjectList;
 
     void Start()
@@ -46,6 +47,19 @@ public class TextLabel : MonoBehaviour
         foreach (GameObject obj in gameObjectList)
         {
             Vector3 direction = obj.transform.position - mainCamera.transform.position;
+            float distance = direction.sqrMagnitude;
+
+            // カメラが遠いなら非表示にする
+            if (distance > TEXT_LABEL_LOD_DISTANCE)
+            {
+                obj.SetActive(false);
+            }
+            else
+            {
+                obj.SetActive(true);
+            }
+
+            // カメラが移動したら向きを変更する
             if (direction.sqrMagnitude > Mathf.Epsilon)
             {
                 obj.transform.rotation = Quaternion.LookRotation(direction, mainCamera.transform.up);
