@@ -3,10 +3,10 @@ using UnityEngine.InputSystem;
 
 public class MoveCamera : MonoBehaviour
 {
-    [SerializeField] private float cameraMoveSpeed = 0.08f;
-    [SerializeField] private float keyboardMoveSpeed = 50f;
-    [SerializeField] private float cameraRotateSpeed = 0.1f;
-    [SerializeField] private float cameraZoomSpeed = 2.5f;
+    private const float CAMERA_MOVE_SPEED = 0.08f;
+    private const float KEYBOARD_MOVE_SPEED = 50f;
+    private const float CAMERA_ROTATE_SPEED = 0.1f;
+    private const float CAMERA_ZOOM_SPEED = 2.5f;
     private Vector3 previousMousePos;
     private bool isLeftDragging = false;
     private bool isRightDragging = false;
@@ -64,7 +64,7 @@ public class MoveCamera : MonoBehaviour
             keyboardMove.x += 1f;
         }
 
-        transform.Translate(keyboardMove.normalized * keyboardMoveSpeed * Time.deltaTime, Space.Self);
+        transform.Translate(keyboardMove.normalized * KEYBOARD_MOVE_SPEED * Time.deltaTime, Space.Self);
 
         // マウスによる移動
         if (Mouse.current != null && isRightDragging)
@@ -72,7 +72,7 @@ public class MoveCamera : MonoBehaviour
             Vector3 currentMousePos = Mouse.current.position.ReadValue();
             Vector3 mousePosDiff = currentMousePos - previousMousePos;
 
-            transform.Translate(-mousePosDiff * cameraMoveSpeed, Space.Self);
+            transform.Translate(-mousePosDiff * CAMERA_MOVE_SPEED, Space.Self);
         }
     }
 
@@ -84,8 +84,8 @@ public class MoveCamera : MonoBehaviour
             Vector3 currentMousePos = Mouse.current.position.ReadValue();
             Vector3 mousePosDiff = currentMousePos - previousMousePos;
 
-            angleX += mousePosDiff.x * cameraRotateSpeed * -1;
-            angleY += mousePosDiff.y * cameraRotateSpeed;
+            angleX += mousePosDiff.x * CAMERA_ROTATE_SPEED * -1;
+            angleY += mousePosDiff.y * CAMERA_ROTATE_SPEED;
             if (angleX % 360f > 180f)
             {
                 angleX -= 360f;
@@ -98,7 +98,7 @@ public class MoveCamera : MonoBehaviour
     private void CameraZoom()
     {
         float scroll = Mouse.current.scroll.ReadValue().y;
-        transform.Translate(transform.forward * scroll * cameraZoomSpeed, Space.World);
+        transform.Translate(transform.forward * scroll * CAMERA_ZOOM_SPEED, Space.World);
     }
 
     // マウスのドラッグクリックの状態を変更する関数
