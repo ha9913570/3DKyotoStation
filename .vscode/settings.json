@@ -67,5 +67,9 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "3DKyotoStation.slnx"
+    "dotnet.defaultSolution": "3DKyotoStation.slnx",
+    "cSpell.words": [
+        "Behaviour",
+        "noto"
+    ]
 }
