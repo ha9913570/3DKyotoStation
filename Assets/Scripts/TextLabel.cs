@@ -59,11 +59,8 @@ public class TextLabel : MonoBehaviour
                 obj.SetActive(true);
             }
 
-            // カメラが移動したら向きを変更する
-            if (direction.sqrMagnitude > Mathf.Epsilon)
-            {
-                obj.transform.rotation = Quaternion.LookRotation(direction, mainCamera.transform.up);
-            }
+            // 画面上で常に水平に見えるよう、カメラの向きに合わせる
+            obj.transform.rotation = Quaternion.LookRotation(mainCamera.transform.forward, mainCamera.transform.up);
         }
     }
 }
