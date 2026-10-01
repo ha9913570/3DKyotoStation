@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - 3dModel
+  - FloorButton
   layers:
   - Default
   - TransparentFX
