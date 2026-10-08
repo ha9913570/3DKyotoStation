@@ -64,7 +64,7 @@ public class MoveCamera : MonoBehaviour
             keyboardMove.x += 1f;
         }
 
-        transform.Translate(keyboardMove.normalized * KEYBOARD_MOVE_SPEED * Time.deltaTime, Space.Self);
+        transform.Translate(KEYBOARD_MOVE_SPEED * Time.deltaTime * keyboardMove.normalized, Space.Self);
 
         // マウスによる移動
         if (Mouse.current != null && isRightDragging)
@@ -98,7 +98,7 @@ public class MoveCamera : MonoBehaviour
     private void CameraZoom()
     {
         float scroll = Mouse.current.scroll.ReadValue().y;
-        transform.Translate(transform.forward * scroll * CAMERA_ZOOM_SPEED, Space.World);
+        transform.Translate(CAMERA_ZOOM_SPEED * scroll * transform.forward, Space.World);
     }
 
     // マウスのドラッグクリックの状態を変更する関数
