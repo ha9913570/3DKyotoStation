@@ -215,6 +215,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: FloorButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1838422115354377948, guid: 8fb16ddc9ed7441479b5bcf4f2ab1924, type: 3}
+      propertyPath: m_Color.r
+      value: 0.078431375
+      objectReference: {fileID: 0}
     - target: {fileID: 5461950512503244081, guid: 8fb16ddc9ed7441479b5bcf4f2ab1924, type: 3}
       propertyPath: m_text
       value: All
