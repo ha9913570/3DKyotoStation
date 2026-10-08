@@ -32,14 +32,9 @@ public class FloorEmphasisButton : MonoBehaviour
     {
         foreach (GameObject obj in modelObjects)
         {
-            if (obj.name.Contains(objectName))
-            {
-                obj.SetActive(true);
-            }
-            else
-            {
-                obj.SetActive(false);
-            }
+            string[] floors = obj.name.Split('-');
+            bool match = System.Array.IndexOf(floors, objectName) >= 0;
+            obj.SetActive(match);
         }
     }
 
