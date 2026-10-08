@@ -14,7 +14,7 @@ public class FloorEmphasisButton : MonoBehaviour
     }
 
     // ボタンがクリックされたときの処理
-    public void onButtonClicked()
+    public void OnButtonClicked()
     {
         SetButtonColor();
         if (objectName == "All")

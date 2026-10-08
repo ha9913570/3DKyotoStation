@@ -124,7 +124,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7322892818426014670}
         m_TargetAssemblyTypeName: FloorEmphasisButton, Assembly-CSharp
-        m_MethodName: onButtonClicked
+        m_MethodName: OnButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
