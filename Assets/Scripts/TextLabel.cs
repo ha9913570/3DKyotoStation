@@ -6,7 +6,9 @@ using UnityEngine;
 public class TextLabel : MonoBehaviour
 {
     private const int TEXT_LABEL_LOD_DISTANCE = 10000;
-    List<GameObject> gameObjectList;
+    private List<GameObject> gameObjectList;
+    private Vector3 OFFSET = new Vector3(0, 0.8f, 0); // テキストラベルの位置調整用
+    private const int BASE_FONT_SIZE = 28; // 基本のフォントサイズ
 
     void Start()
     {
@@ -30,11 +32,14 @@ public class TextLabel : MonoBehaviour
         {
             GameObject obj = gameObjectList[i];
             TextMeshPro textLabel = new GameObject(obj.name).AddComponent<TextMeshPro>();
+            string labelText = obj.name.Substring(6); // 「label_」を削除
             textLabel.alignment = TextAlignmentOptions.Center;
             textLabel.font = notoSansFont;
-            textLabel.fontSize = 20;
-            textLabel.text = obj.name.Substring(6); // 「label_」を削除
-            textLabel.transform.position = obj.transform.position;
+            textLabel.fontSize = calcFontSize(labelText);
+            textLabel.color = Color.white;
+            textLabel.text = labelText;
+            textLabel.textWrappingMode = TextWrappingModes.NoWrap;
+            textLabel.transform.position = obj.transform.position + OFFSET;
             gameObjectList[i] = textLabel.gameObject;
         }
     }
@@ -61,6 +66,21 @@ public class TextLabel : MonoBehaviour
 
             // 画面上で常に水平に見えるよう、カメラの向きに合わせる
             obj.transform.rotation = Quaternion.LookRotation(mainCamera.transform.forward, mainCamera.transform.up);
+        }
+    }
+
+    // フォントサイズを計算する関数
+    private int calcFontSize(string labelText)
+    {
+        int length = labelText.Length;
+        if (length <= 5)
+        {
+            return BASE_FONT_SIZE;
+        }
+        // 文字数が多い場合はフォントサイズを小さくする
+        else
+        {
+            return BASE_FONT_SIZE - (length - 5);
         }
     }
 }
