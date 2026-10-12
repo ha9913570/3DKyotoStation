@@ -7,7 +7,7 @@ public class TextLabel : MonoBehaviour
 {
     private const int TEXT_LABEL_LOD_DISTANCE = 10000;
     private List<GameObject> gameObjectList;
-    private Vector3 OFFSET = new Vector3(0, 0.8f, 0); // テキストラベルの位置調整用
+    private Vector3 OFFSET = new Vector3(0, 1f, 0); // テキストラベルの位置調整用
     private const int BASE_FONT_SIZE = 28; // 基本のフォントサイズ
 
     void Start()
@@ -32,11 +32,17 @@ public class TextLabel : MonoBehaviour
         {
             GameObject obj = gameObjectList[i];
             TextMeshPro textLabel = new GameObject(obj.name).AddComponent<TextMeshPro>();
-            string labelText = obj.name.Substring(6); // 「label_」を削除
+            string labelText = obj.name[9..]; // 「label_nF_」を削除
+            if (labelText.StartsWith("_"))
+            {
+                labelText = labelText[1..]; // 先頭の「_」を削除
+            }
+
             textLabel.alignment = TextAlignmentOptions.Center;
             textLabel.font = notoSansFont;
-            textLabel.fontSize = calcFontSize(labelText);
+            textLabel.fontSize = CalcFontSize(labelText);
             textLabel.color = Color.white;
+            textLabel.tag = "TextLabel";
             textLabel.text = labelText;
             textLabel.textWrappingMode = TextWrappingModes.NoWrap;
             textLabel.transform.position = obj.transform.position + OFFSET;
@@ -70,7 +76,7 @@ public class TextLabel : MonoBehaviour
     }
 
     // フォントサイズを計算する関数
-    private int calcFontSize(string labelText)
+    private int CalcFontSize(string labelText)
     {
         int length = labelText.Length;
         if (length <= 5)
