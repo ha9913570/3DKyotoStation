@@ -1362,6 +1362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b87f19cfe89784a4d9f264cf7d37f4e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Compass
+  mainCamera: {fileID: 748854682}
 --- !u!114 &944924820
 MonoBehaviour:
   m_ObjectHideFlags: 0

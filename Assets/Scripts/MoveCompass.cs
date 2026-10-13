@@ -2,11 +2,7 @@ using UnityEngine;
 
 public class MoveCompass : MonoBehaviour
 {
-    private GameObject mainCamera;
-    void Start()
-    {
-        mainCamera = GameObject.Find("Main Camera");
-    }
+    [SerializeField] private GameObject mainCamera;
 
     void Update()
     {
