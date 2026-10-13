@@ -42,7 +42,6 @@ public class TextLabel : MonoBehaviour
             textLabel.font = notoSansFont;
             textLabel.fontSize = CalcFontSize(labelText);
             textLabel.color = Color.white;
-            textLabel.tag = "TextLabel";
             textLabel.text = labelText;
             textLabel.textWrappingMode = TextWrappingModes.NoWrap;
             textLabel.transform.position = obj.transform.position + OFFSET;
@@ -84,9 +83,13 @@ public class TextLabel : MonoBehaviour
             return BASE_FONT_SIZE;
         }
         // 文字数が多い場合はフォントサイズを小さくする
-        else
+        else if (length <= 20)
         {
             return BASE_FONT_SIZE - (length - 5);
+        }
+        else
+        {
+            return BASE_FONT_SIZE - 15;
         }
     }
 }
