@@ -6,9 +6,11 @@ using UnityEngine;
 public class TextLabel : MonoBehaviour
 {
     private const int TEXT_LABEL_LOD_DISTANCE = 10000;
-    private List<GameObject> gameObjectList;
-    private Vector3 OFFSET = new Vector3(0, 1f, 0); // テキストラベルの位置調整用
     private const int BASE_FONT_SIZE = 28; // 基本のフォントサイズ
+    private Vector3 OFFSET = new(0, 1f, 0); // テキストラベルの位置調整用
+    private List<GameObject> gameObjectList;
+    private string selectedFloor = "All";
+    [SerializeField] private GameObject mainCamera;
 
     void Start()
     {
@@ -51,27 +53,30 @@ public class TextLabel : MonoBehaviour
 
     void LateUpdate()
     {
-        Camera mainCamera = Camera.main;
-
-        // 各ラベルをカメラの方向へ向ける（ラベル自身の位置を基準にする）
         foreach (GameObject obj in gameObjectList)
         {
             Vector3 direction = obj.transform.position - mainCamera.transform.position;
             float distance = direction.sqrMagnitude;
+            bool isSelectedFloor = selectedFloor == "All" || IsLabelOnFloor(obj, selectedFloor);
 
-            // カメラが遠いなら非表示にする
-            if (distance > TEXT_LABEL_LOD_DISTANCE)
-            {
-                obj.SetActive(false);
-            }
-            else
-            {
-                obj.SetActive(true);
-            }
+            // 選択階にあるかつカメラからの距離が一定以内の場合にラベルを表示する
+            obj.SetActive(isSelectedFloor && distance <= TEXT_LABEL_LOD_DISTANCE);
 
             // 画面上で常に水平に見えるよう、カメラの向きに合わせる
             obj.transform.rotation = Quaternion.LookRotation(mainCamera.transform.forward, mainCamera.transform.up);
         }
+    }
+
+    // 現在選択されている階を設定する関数
+    public void SetFloor(string floor)
+    {
+        selectedFloor = floor;
+    }
+
+    // ラベルが指定した階に存在しているかどうかを判定する関数
+    private bool IsLabelOnFloor(GameObject label, string floor)
+    {
+        return label.name.StartsWith($"label_{floor}_");
     }
 
     // フォントサイズを計算する関数
