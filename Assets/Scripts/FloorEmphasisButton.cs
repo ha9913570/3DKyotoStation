@@ -7,6 +7,7 @@ public class FloorEmphasisButton : MonoBehaviour
     private GameObject[] modelObjects;
     private GameObject[] buttonObjects;
     private TextLabel textLabel;
+    private GenerateFacilityIcon facilityIcon;
 
     void Start()
     {
@@ -14,6 +15,7 @@ public class FloorEmphasisButton : MonoBehaviour
         modelObjects = GameObject.FindGameObjectsWithTag("3dModel");
         buttonObjects = GameObject.FindGameObjectsWithTag("FloorButton");
         textLabel = FindFirstObjectByType<TextLabel>();
+        facilityIcon = FindFirstObjectByType<GenerateFacilityIcon>();
     }
 
     // ボタンがクリックされたときの処理
@@ -29,6 +31,7 @@ public class FloorEmphasisButton : MonoBehaviour
             SetButtonActive();
         }
         textLabel.SetFloor(objectName);
+        facilityIcon.SetFloor(objectName);
     }
 
     // 自分のボタンに対応する3Dモデルオブジェクトをアクティブにし、それ以外を非アクティブにする関数
