@@ -3,7 +3,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-public class TextLabel : MonoBehaviour
+public class GenerateTextLabel : MonoBehaviour
 {
     private const int TEXT_LABEL_LOD_DISTANCE = 15000;
     private const int BASE_FONT_SIZE = 28;

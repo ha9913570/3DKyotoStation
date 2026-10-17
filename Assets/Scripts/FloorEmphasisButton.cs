@@ -6,7 +6,7 @@ public class FloorEmphasisButton : MonoBehaviour
     private string objectName;
     private GameObject[] modelObjects;
     private GameObject[] buttonObjects;
-    private TextLabel textLabel;
+    private GenerateTextLabel textLabel;
     private GenerateFacilityIcon facilityIcon;
 
     void Start()
@@ -14,7 +14,7 @@ public class FloorEmphasisButton : MonoBehaviour
         objectName = gameObject.name.Replace("Button_", "");
         modelObjects = GameObject.FindGameObjectsWithTag("3dModel");
         buttonObjects = GameObject.FindGameObjectsWithTag("FloorButton");
-        textLabel = FindFirstObjectByType<TextLabel>();
+        textLabel = FindFirstObjectByType<GenerateTextLabel>();
         facilityIcon = FindFirstObjectByType<GenerateFacilityIcon>();
     }
 
