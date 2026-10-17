@@ -12,11 +12,11 @@ public class GenerateFacilityIcon : MonoBehaviour
 
     void Start()
     {
-        // 「トイレ_」で始まるオブジェクトを取得
+        // 「wc_」で始まるオブジェクトを取得
         List<GameObject> gameObjectList = FindObjectsByType<GameObject>(FindObjectsSortMode.None).ToList();
         for (int i = 0; i < gameObjectList.Count; i++)
         {
-            if (!gameObjectList[i].name.StartsWith("トイレ_"))
+            if (!gameObjectList[i].name.StartsWith("wc_"))
             {
                 gameObjectList.RemoveAt(i);
                 i--;
@@ -50,7 +50,7 @@ public class GenerateFacilityIcon : MonoBehaviour
     // トイレアイコンが指定した階に存在しているかどうかを判定する関数
     private bool IsWcOnFloor(GameObject label, string floor)
     {
-        return label.name.StartsWith($"トイレ_{floor}");
+        return label.name.StartsWith($"wc_{floor}");
     }
 
     public void SetFloor(string floor)
