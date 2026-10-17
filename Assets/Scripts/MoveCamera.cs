@@ -11,15 +11,15 @@ public class MoveCamera : MonoBehaviour
     private bool isLeftDragging = false;
     private bool isRightDragging = false;
 
-    private float angleX; // x軸
-    private float angleY; // y軸
+    private float yawAngle;
+    private float pitchAngle;
 
 
     void Start()
     {
         Vector3 angle = transform.eulerAngles;
-        angleX = angle.x;
-        angleY = angle.y;
+        yawAngle = angle.y;
+        pitchAngle = angle.x;
     }
 
     void Update()
@@ -42,7 +42,7 @@ public class MoveCamera : MonoBehaviour
         }
     }
 
-    // 左クリックをドラッグしたときにカメラを移動させる関数
+    // 右クリックをドラッグしたときにカメラを移動させる関数
     private void CameraMove()
     {
         // キーボードによる移動
@@ -76,7 +76,7 @@ public class MoveCamera : MonoBehaviour
         }
     }
 
-    // 右クリックをドラッグしたときにカメラを回転させる関数
+    // 左クリックをドラッグしたときにカメラを回転させる関数
     private void CameraRotate()
     {
         if (isLeftDragging)
@@ -84,13 +84,13 @@ public class MoveCamera : MonoBehaviour
             Vector3 currentMousePos = Mouse.current.position.ReadValue();
             Vector3 mousePosDiff = currentMousePos - previousMousePos;
 
-            angleX += mousePosDiff.x * CAMERA_ROTATE_SPEED * -1;
-            angleY += mousePosDiff.y * CAMERA_ROTATE_SPEED;
-            if (angleX % 360f > 180f)
+            yawAngle += mousePosDiff.x * CAMERA_ROTATE_SPEED * -1;
+            pitchAngle += mousePosDiff.y * CAMERA_ROTATE_SPEED;
+            if (yawAngle % 360f > 180f)
             {
-                angleX -= 360f;
+                yawAngle -= 360f;
             }
-            transform.eulerAngles = new Vector3(angleY, angleX, 0f);
+            transform.eulerAngles = new Vector3(pitchAngle, yawAngle, 0f);
         }
     }
 
