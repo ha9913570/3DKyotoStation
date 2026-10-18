@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class FloorEmphasisButton : MonoBehaviour
 {
+    private const float OTHER_FLOOR_ALPHA = 0.05f;
+
     private string objectName;
     private GameObject[] modelObjects;
     private GameObject[] buttonObjects;
@@ -16,6 +18,14 @@ public class FloorEmphasisButton : MonoBehaviour
         buttonObjects = GameObject.FindGameObjectsWithTag("FloorButton");
         textLabel = FindFirstObjectByType<GenerateTextLabel>();
         facilityIcon = FindFirstObjectByType<GenerateFacilityIcon>();
+
+        // 半透明用マテリアルを Resources から読み込み、各モデルに FloorTransparency を付与
+        Material transparentBase = Resources.Load<Material>("TransparentBase");
+        foreach (GameObject obj in modelObjects)
+        {
+            if (obj.GetComponent<FloorTransparency>() != null) continue;
+            obj.AddComponent<FloorTransparency>().Init(transparentBase);
+        }
     }
 
     // ボタンがクリックされたときの処理
@@ -24,7 +34,7 @@ public class FloorEmphasisButton : MonoBehaviour
         SetButtonColor();
         if (objectName == "All")
         {
-            AllModelObjectsActive();
+            AllModelObjectsOpaque();
         }
         else
         {
@@ -34,23 +44,26 @@ public class FloorEmphasisButton : MonoBehaviour
         facilityIcon.SetFloor(objectName);
     }
 
-    // 自分のボタンに対応する3Dモデルオブジェクトをアクティブにし、それ以外を非アクティブにする関数
+    // 選択した階は不透明、それ以外は半透明(または非表示)にする
     private void SetButtonActive()
     {
         foreach (GameObject obj in modelObjects)
         {
             string[] floors = obj.name.Split('-');
             bool match = System.Array.IndexOf(floors, objectName) >= 0;
-            obj.SetActive(match);
+
+            var ft = obj.GetComponent<FloorTransparency>();
+            if (ft != null) ft.SetTransparent(!match, OTHER_FLOOR_ALPHA);
         }
     }
 
-    // すべての3Dモデルオブジェクトをアクティブにする関数
-    private void AllModelObjectsActive()
+    // すべての3Dモデルを不透明にする
+    private void AllModelObjectsOpaque()
     {
         foreach (GameObject obj in modelObjects)
         {
-            obj.SetActive(true);
+            var ft = obj.GetComponent<FloorTransparency>();
+            if (ft != null) ft.SetTransparent(false, 1f);
         }
     }
 
