@@ -617,8 +617,7 @@ GameObject:
   - component: {fileID: 289746531}
   - component: {fileID: 289746530}
   - component: {fileID: 289746529}
-  - component: {fileID: 289746535}
-  - component: {fileID: 289746534}
+  - component: {fileID: 289746536}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -710,7 +709,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &289746534
+--- !u!114 &289746536
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -719,24 +718,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 289746528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab351da1bfd3b1347a8cdfe390c6d73a, type: 3}
+  m_Script: {fileID: 11500000, guid: e65f291e59d404046b664e7e9d15e581, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GenerateFacilityIcon
-  wcImageSprite: {fileID: 21300000, guid: d676954818d9eec4b9d1f2f3fa85a6fd, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::BillboardObjectManager
   mainCamera: {fileID: 748854682}
---- !u!114 &289746535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289746528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af1122aecad4b7140b4188ba5ac29c9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GenerateTextLabel
-  mainCamera: {fileID: 748854682}
+  fontAsset: {fileID: 11400000, guid: 877f143a7cec2004d8f46f073cf1ff1f, type: 2}
+  wcIconSprite: {fileID: 21300000, guid: d676954818d9eec4b9d1f2f3fa85a6fd, type: 3}
+  sevenElevenIconSprite: {fileID: 21300000, guid: 124f4e3a4f3611e4f84fd09a0d94c2ed, type: 3}
+  familyMartIconSprite: {fileID: 21300000, guid: aaca31c62304ed849976c2673ffcd2f5, type: 3}
 --- !u!1001 &390268589
 PrefabInstance:
   m_ObjectHideFlags: 0

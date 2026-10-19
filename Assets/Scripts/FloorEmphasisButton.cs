@@ -8,16 +8,14 @@ public class FloorEmphasisButton : MonoBehaviour
     private string objectName;
     private GameObject[] modelObjects;
     private GameObject[] buttonObjects;
-    private GenerateTextLabel textLabel;
-    private GenerateFacilityIcon facilityIcon;
+    private BillboardObjectManager billboardObjectManager;
 
     void Start()
     {
         objectName = gameObject.name.Replace("Button_", "");
         modelObjects = GameObject.FindGameObjectsWithTag("3dModel");
         buttonObjects = GameObject.FindGameObjectsWithTag("FloorButton");
-        textLabel = FindFirstObjectByType<GenerateTextLabel>();
-        facilityIcon = FindFirstObjectByType<GenerateFacilityIcon>();
+        billboardObjectManager = FindFirstObjectByType<BillboardObjectManager>();
 
         // 半透明用マテリアルを Resources から読み込み、各モデルに FloorTransparency を付与
         Material transparentBase = Resources.Load<Material>("TransparentBase");
@@ -40,8 +38,7 @@ public class FloorEmphasisButton : MonoBehaviour
         {
             SetButtonActive();
         }
-        textLabel.SetFloor(objectName);
-        facilityIcon.SetFloor(objectName);
+        billboardObjectManager.SetFloor(objectName);
     }
 
     // 選択した階は不透明、それ以外は半透明(または非表示)にする
