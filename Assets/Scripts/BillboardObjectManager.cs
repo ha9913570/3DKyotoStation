@@ -86,13 +86,14 @@ class BillboardObjectManager : MonoBehaviour
                     labelText = labelText[1..]; // 先頭の「_」を削除
                 }
                 int fontSize = CalcFontSize(labelText);
-                labelText = "<mark=#00000050 padding=\"60,60,10,10\">" + labelText + "</mark>";
+                labelText = "<mark=#00000070 padding=\"60,60,10,10\">" + labelText + "</mark>";
 
                 // テキストラベルの設定
                 billboardObject.alignment = TextAlignmentOptions.Center;
                 billboardObject.color = Color.white;
                 billboardObject.font = fontAsset;
                 billboardObject.fontSize = fontSize;
+                billboardObject.geometrySortingOrder = VertexSortingOrder.Reverse;
                 billboardObject.text = labelText;
                 billboardObject.textWrappingMode = TextWrappingModes.NoWrap;
                 billboardObject.transform.position = obj.transform.position + TEXT_LABEL_POS_OFFSET;
