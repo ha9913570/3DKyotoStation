@@ -1,12 +1,16 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MoveCamera : MonoBehaviour
+public class CameraManager : MonoBehaviour
 {
     private const float CAMERA_MOVE_SPEED = 0.12f;
     private const float KEYBOARD_MOVE_SPEED = 90f;
     private const float CAMERA_ROTATE_SPEED = 0.1f;
     private const float CAMERA_ZOOM_SPEED = 7f;
+
+    private readonly Vector3 CAMERA_INITAL_POSITION = new(17f, 23f, 132f);
+    private readonly Vector3 CAMERA_INITAL_ROTATE = new(0f, 180f, 0f);
+
     private Vector3 previousMousePos;
     private bool isLeftDragging = false;
     private bool isRightDragging = false;
@@ -14,6 +18,12 @@ public class MoveCamera : MonoBehaviour
     private float yawAngle;
     private float pitchAngle;
 
+    private InputAction cameraResetAction;
+
+    void Awake()
+    {
+        cameraResetAction = InputSystem.actions.FindAction("CameraReset");
+    }
 
     void Start()
     {
@@ -24,22 +34,21 @@ public class MoveCamera : MonoBehaviour
 
     void Update()
     {
-        if (Mouse.current == null && Keyboard.current == null)
+        if (cameraResetAction.WasPressedThisFrame())
         {
-            return;
+            gameObject.transform.position = CAMERA_INITAL_POSITION;
+
+            gameObject.transform.eulerAngles = CAMERA_INITAL_ROTATE;
+            yawAngle = CAMERA_INITAL_ROTATE.y;
+            pitchAngle = CAMERA_INITAL_ROTATE.x;
         }
 
-        if (Mouse.current != null)
-        {
-            if (Keyboard.current != null)
-            {
-                CameraMove();
-            }
-            UpdateMouseDragStatus();
-            CameraRotate();
-            CameraZoom();
-            previousMousePos = Mouse.current.position.ReadValue();
-        }
+        UpdateMouseDragStatus();
+        CameraMove();
+        CameraRotate();
+        CameraZoom();
+
+        previousMousePos = Mouse.current.position.ReadValue();
     }
 
     // 右クリックをドラッグしたときにカメラを移動させる関数

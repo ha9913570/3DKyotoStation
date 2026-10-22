@@ -51,6 +51,35 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Camera",
+            "id": "efaac9c4-8980-491c-8ec9-af6ce0eda468",
+            "actions": [
+                {
+                    "name": "CameraReset",
+                    "type": "Button",
+                    "id": "2ba05c67-dce4-4fa9-90b3-eac7af69715e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c44f892d-5d13-4760-8910-62babd7bf8b0",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraReset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
