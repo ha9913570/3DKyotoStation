@@ -9,6 +9,7 @@ public class FloorEmphasisButton : MonoBehaviour
     private GameObject[] modelObjects;
     private GameObject[] buttonObjects;
     private BillboardObjectManager billboardObjectManager;
+    private FloorButtonManager floorButtonManager;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class FloorEmphasisButton : MonoBehaviour
         modelObjects = GameObject.FindGameObjectsWithTag("3dModel");
         buttonObjects = GameObject.FindGameObjectsWithTag("FloorButton");
         billboardObjectManager = FindFirstObjectByType<BillboardObjectManager>();
+        floorButtonManager = FindFirstObjectByType<FloorButtonManager>();
 
         // 半透明用マテリアルを Resources から読み込み、各モデルに FloorTransparency を付与
         Material transparentBase = Resources.Load<Material>("TransparentBase");
@@ -29,6 +31,9 @@ public class FloorEmphasisButton : MonoBehaviour
     // ボタンがクリックされたときの処理
     public void OnButtonClicked()
     {
+        // Managerにクリックした階を登録
+        floorButtonManager.SetCurrentFloor(floorButtonManager.FloorStringToInt(objectName));
+
         SetButtonColor();
         if (objectName == "All")
         {
