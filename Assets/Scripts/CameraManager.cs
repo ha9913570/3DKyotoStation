@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,9 @@ public class CameraManager : MonoBehaviour
     private const float KEYBOARD_MOVE_SPEED = 90f;
     private const float CAMERA_ROTATE_SPEED = 0.1f;
     private const float CAMERA_ZOOM_SPEED = 7f;
+    private const float CAMERA_MAX_POS_X = 500f;
+    private const float CAMERA_MAX_POS_Y = 300f;
+    private const float CAMERA_MAX_POS_Z = 500f;
 
     private readonly Vector3 CAMERA_INITAL_POSITION = new(17f, 23f, 132f);
     private readonly Vector3 CAMERA_INITAL_ROTATE = new(0f, 180f, 0f);
@@ -77,15 +81,21 @@ public class CameraManager : MonoBehaviour
     // マウスを動かしてカメラを移動させる関数
     private void CameraMoveByMouse()
     {
-        Vector2 mouseMoveAmount = mouseMoveAction.ReadValue<Vector2>();
-        transform.Translate(mouseMoveAmount * CAMERA_MOVE_SPEED, Space.Self);
+        Vector3 moveAmount = mouseMoveAction.ReadValue<Vector2>() * CAMERA_MOVE_SPEED;
+        if (IsCameraPosInLimit(moveAmount + gameObject.transform.position))
+        {
+            transform.Translate(moveAmount, Space.Self);
+        }
     }
 
     // WASDによってカメラを移動させる関数
     private void CameraMoveByKeyboard()
     {
-        Vector3 keyboardMoveAmount = keyboardMoveAction.ReadValue<Vector3>();
-        transform.Translate(KEYBOARD_MOVE_SPEED * Time.deltaTime * keyboardMoveAmount, Space.Self);
+        Vector3 moveAmount = KEYBOARD_MOVE_SPEED * Time.deltaTime * keyboardMoveAction.ReadValue<Vector3>();
+        if (IsCameraPosInLimit(moveAmount + gameObject.transform.position))
+        {
+            transform.Translate(moveAmount, Space.Self);
+        }
     }
 
     // マウスを動かしてカメラを回転させる関数
@@ -106,6 +116,27 @@ public class CameraManager : MonoBehaviour
     private void CameraZoom()
     {
         float scrollAmount = mouseScrollAction.ReadValue<float>();
-        transform.Translate(CAMERA_ZOOM_SPEED * scrollAmount * transform.forward, Space.World);
+        Vector3 moveAmount = CAMERA_ZOOM_SPEED * scrollAmount * transform.forward;
+        if (IsCameraPosInLimit(moveAmount + gameObject.transform.position))
+        {
+            transform.Translate(moveAmount, Space.World);
+        }
+    }
+
+    // 移動先の場所がカメラの移動範囲内にいるかどうかを返す関数
+    private bool IsCameraPosInLimit(Vector3 dest)
+    {
+        float x = Math.Abs(dest.x);
+        float y = Math.Abs(dest.y);
+        float z = Math.Abs(dest.z);
+
+        if (x > CAMERA_MAX_POS_X || y > CAMERA_MAX_POS_Y || z > CAMERA_MAX_POS_Z)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 }
