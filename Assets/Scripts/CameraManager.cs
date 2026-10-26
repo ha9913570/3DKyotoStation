@@ -15,6 +15,8 @@ public class CameraManager : MonoBehaviour
     private readonly Vector3 CAMERA_INITAL_POSITION = new(17f, 23f, 132f);
     private readonly Vector3 CAMERA_INITAL_ROTATE = new(0f, 180f, 0f);
 
+    private float mouseMoveRatio = 1f;
+    private float mouseZoomRatio = 1f;
     private float yawAngle;
     private float pitchAngle;
 
@@ -81,7 +83,8 @@ public class CameraManager : MonoBehaviour
     // マウスを動かしてカメラを移動させる関数
     private void CameraMoveByMouse()
     {
-        Vector3 moveAmount = mouseMoveAction.ReadValue<Vector2>() * CAMERA_MOVE_SPEED;
+        CalcMouseMoveRatio();
+        Vector3 moveAmount = CAMERA_MOVE_SPEED * mouseMoveRatio * mouseMoveAction.ReadValue<Vector2>();
         if (IsCameraPosInLimit(moveAmount + gameObject.transform.position))
         {
             transform.Translate(moveAmount, Space.Self);
@@ -115,8 +118,9 @@ public class CameraManager : MonoBehaviour
     // マウスホイールでカメラをズームさせる関数
     private void CameraZoom()
     {
+        CalcMouseZoomRatio();
         float scrollAmount = mouseScrollAction.ReadValue<float>();
-        Vector3 moveAmount = CAMERA_ZOOM_SPEED * scrollAmount * transform.forward;
+        Vector3 moveAmount = CAMERA_ZOOM_SPEED * scrollAmount * mouseZoomRatio * transform.forward;
         if (IsCameraPosInLimit(moveAmount + gameObject.transform.position))
         {
             transform.Translate(moveAmount, Space.World);
@@ -138,5 +142,19 @@ public class CameraManager : MonoBehaviour
         {
             return true;
         }
+    }
+
+    // カメラの位置に応じてマウスによる移動倍率を設定する関数
+    private void CalcMouseMoveRatio()
+    {
+        Vector3 cameraPos = gameObject.transform.position;
+        mouseMoveRatio = Math.Min(cameraPos.sqrMagnitude / 70000 + 1, 2f);
+    }
+
+    // カメラの位置に応じてズームの移動倍率を設定する関数
+    private void CalcMouseZoomRatio()
+    {
+        Vector3 cameraPos = gameObject.transform.position;
+        mouseZoomRatio = Math.Min(cameraPos.sqrMagnitude / 80000 + 0.5f, 3f);
     }
 }
