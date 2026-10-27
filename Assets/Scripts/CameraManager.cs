@@ -94,10 +94,16 @@ public class CameraManager : MonoBehaviour
     // WASDによってカメラを移動させる関数
     private void CameraMoveByKeyboard()
     {
-        Vector3 moveAmount = KEYBOARD_MOVE_SPEED * Time.deltaTime * keyboardMoveAction.ReadValue<Vector3>();
+        Vector3 input = keyboardMoveAction.ReadValue<Vector3>();
+
+        Vector3 horizontalInput = new(input.x, 0f, input.z);
+        Vector3 horizontalMove = Quaternion.Euler(0f, yawAngle, 0f) * horizontalInput;
+        Vector3 verticalMove = Vector3.up * input.y;
+        Vector3 moveAmount = KEYBOARD_MOVE_SPEED * Time.deltaTime * (horizontalMove + verticalMove);
+
         if (IsCameraPosInLimit(moveAmount + gameObject.transform.position))
         {
-            transform.Translate(moveAmount, Space.Self);
+            transform.Translate(moveAmount, Space.World);
         }
     }
 
