@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class CameraManager : MonoBehaviour
 {
     private const float CAMERA_MOVE_SPEED = 0.12f;
-    private const float KEYBOARD_MOVE_SPEED = 90f;
+    private const float KEYBOARD_MOVE_SPEED = 70f;
     private const float CAMERA_ROTATE_SPEED = 0.1f;
     private const float CAMERA_ZOOM_SPEED = 7f;
     private const float CAMERA_MAX_POS_X = 500f;
