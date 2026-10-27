@@ -5,7 +5,7 @@ using UnityEngine;
 
 class BillboardObjectManager : MonoBehaviour
 {
-    private const int OBJECT_MAX_VISIBLE_DISTANCE = 30000;
+    private const int OBJECT_MAX_VISIBLE_DISTANCE = 40000;
     private const int TEXT_LABEL_BASE_FONT_SIZE = 28;
     private Vector3 TEXT_LABEL_POS_OFFSET = new(0, 1.5f, 0);
     private Vector3 ICON_SCALE = new(0.5f, 0.5f, 0.5f);
