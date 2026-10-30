@@ -119,16 +119,6 @@
                     "priority": 0
                 },
                 {
-                    "name": "MouseRightClick",
-                    "type": "Button",
-                    "id": "53719c83-47a8-47bf-bfeb-3f2eadc6b728",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false,
-                    "priority": 0
-                },
-                {
                     "name": "KeyboardMove",
                     "type": "Value",
                     "id": "85ee8e65-6b42-4062-b367-bd9fc2591bd8",
@@ -302,17 +292,6 @@
                     "action": "MouseScroll",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "96f9deba-438b-4623-b6dc-cdf0f8dbc155",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MouseRightClick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }

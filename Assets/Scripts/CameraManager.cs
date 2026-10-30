@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 
 public class CameraManager : MonoBehaviour
 {
-    private const float CAMERA_MOVE_SPEED = 0.12f;
     private const float KEYBOARD_MOVE_SPEED = 70f;
     private const float CAMERA_ROTATE_SPEED = 0.1f;
     private const float CAMERA_ZOOM_SPEED = 7f;
@@ -15,14 +14,12 @@ public class CameraManager : MonoBehaviour
     private readonly Vector3 CAMERA_INITAL_POSITION = new(17f, 23f, 132f);
     private readonly Vector3 CAMERA_INITAL_ROTATE = new(0f, 180f, 0f);
 
-    private float mouseMoveRatio = 1f;
     private float mouseZoomRatio = 1f;
     private float yawAngle;
     private float pitchAngle;
 
     private InputAction mouseMoveAction;
     private InputAction mouseScrollAction;
-    private InputAction mouseRightClickAction;
     private InputAction keyboardMoveAction;
     private InputAction cameraResetAction;
     private InputAction showMouseCursorAction;
@@ -31,7 +28,6 @@ public class CameraManager : MonoBehaviour
     {
         mouseMoveAction = InputSystem.actions.FindAction("MouseMove");
         mouseScrollAction = InputSystem.actions.FindAction("MouseScroll");
-        mouseRightClickAction = InputSystem.actions.FindAction("MouseRightClick");
         keyboardMoveAction = InputSystem.actions.FindAction("KeyboardMove");
         cameraResetAction = InputSystem.actions.FindAction("CameraReset");
         showMouseCursorAction = InputSystem.actions.FindAction("ShowMouseCursor");
@@ -66,28 +62,8 @@ public class CameraManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
 
             CameraMoveByKeyboard();
-            // 右クリックが押されている間はカメラ移動
-            if (mouseRightClickAction.IsPressed())
-            {
-                CameraMoveByMouse();
-            }
-            // 右クリックが押されていない間はカメラ回転
-            else
-            {
-                CameraRotate();
-            }
+            CameraRotate();
             CameraZoom();
-        }
-    }
-
-    // マウスを動かしてカメラを移動させる関数
-    private void CameraMoveByMouse()
-    {
-        CalcMouseMoveRatio();
-        Vector3 moveAmount = CAMERA_MOVE_SPEED * mouseMoveRatio * mouseMoveAction.ReadValue<Vector2>();
-        if (IsCameraPosInLimit(moveAmount + gameObject.transform.position))
-        {
-            transform.Translate(moveAmount, Space.Self);
         }
     }
 
@@ -148,13 +124,6 @@ public class CameraManager : MonoBehaviour
         {
             return true;
         }
-    }
-
-    // カメラの位置に応じてマウスによる移動倍率を設定する関数
-    private void CalcMouseMoveRatio()
-    {
-        Vector3 cameraPos = gameObject.transform.position;
-        mouseMoveRatio = Math.Min(cameraPos.sqrMagnitude / 70000 + 1, 2f);
     }
 
     // カメラの位置に応じてズームの移動倍率を設定する関数
