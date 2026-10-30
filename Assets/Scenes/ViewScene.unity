@@ -3984,6 +3984,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   routeSelectMenu: {fileID: 1369911701}
   mainCamera: {fileID: 748854682}
+  routeObjects:
+  - {fileID: 516726822}
+  - {fileID: 1077936843}
+  - {fileID: 2136252754}
+  - {fileID: 1238695228}
 --- !u!1001 &1998308782
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,18 +4,21 @@ public class ShowRoute : MonoBehaviour
 {
     [SerializeField] private GameObject routeObject;
 
-    private bool isActive = false;
     private RouteUiManager routeUiManager;
 
-    private void Awake()
+    public void Awake()
     {
         routeUiManager = FindFirstObjectByType<RouteUiManager>();
     }
 
     public void OnButtonClicked()
     {
-        isActive = !isActive;
-        routeObject.SetActive(isActive);
+        SetIsActive(true);
         routeUiManager.HideRouteButtons();
+    }
+
+    public void SetIsActive(bool value)
+    {
+        routeObject.SetActive(value);
     }
 }
