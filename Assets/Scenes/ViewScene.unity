@@ -301,7 +301,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 40.300003, y: 21.900002}
-  m_SizeDelta: {x: 370.7, y: 383.4}
+  m_SizeDelta: {x: 370.7, y: 440.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &55573983
 MonoBehaviour:
@@ -1510,7 +1510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.7, y: 208.1}
+  m_AnchoredPosition: {x: 15.7, y: 248.2}
   m_SizeDelta: {x: 161.9, y: 43.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &639876132
@@ -3107,7 +3107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 149.6, y: 172.9}
+  m_AnchoredPosition: {x: 149.6, y: 213.13}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1521907051
@@ -3353,7 +3353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 102.6, y: -5.7}
+  m_AnchoredPosition: {x: 102.6, y: 6.4}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1570048688
@@ -3376,7 +3376,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<sprite=0> \u8996\u70B9\u64CD\u4F5C\n<sprite=2>\u30BA\u30FC\u30E0\n<sprite=4>\u79FB\u52D5\n<sprite=3>\u4E0A\u4E0B\u79FB\u52D5\n<sprite=1>\u30EB\u30FC\u30C8\u9078\u629E"
+  m_text: "<sprite=0> \u8996\u70B9\u64CD\u4F5C\n<sprite=2>\u30BA\u30FC\u30E0\n<sprite=4>
+    \u79FB\u52D5\n<sprite=3>\u4E0A\u4E0B\u79FB\u52D5\n<sprite=1>\u30EB\u30FC\u30C8\u9078\u629E\n<sprite=5>\u968E\u5C64\u9078\u629E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 877f143a7cec2004d8f46f073cf1ff1f, type: 2}
   m_sharedMaterial: {fileID: -4159019171045233466, guid: 877f143a7cec2004d8f46f073cf1ff1f, type: 2}
@@ -3395,7 +3396,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 11400000, guid: e32628dec15210b42b197e8130cfd82a, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: 29678f11022c8b042b991c35272f2efe, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901

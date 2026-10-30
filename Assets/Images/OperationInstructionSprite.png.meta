@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OperationInstructionSprite 1_0
+      name: OperationInstructionSprite_0
       rect:
         serializedVersion: 2
         x: 0
@@ -112,14 +112,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2e8431d7846c95469338e0919341bfc
-      internalID: -1165204156
+      spriteID: 0d643788bda8aec41a92236f8666780f
+      internalID: -1990380930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OperationInstructionSprite 1_1
+      name: OperationInstructionSprite_1
       rect:
         serializedVersion: 2
         x: 256
@@ -134,14 +134,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 014b884dcddb6bc4a9f1e228eb32401c
-      internalID: 1882401520
+      spriteID: a8c7e4fc71cb3b143924b5e5e0c0d716
+      internalID: -166192364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OperationInstructionSprite 1_2
+      name: OperationInstructionSprite_2
       rect:
         serializedVersion: 2
         x: 512
@@ -156,14 +156,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82209c3f11547d2489ac3fd8cf4b8d63
-      internalID: -1983294011
+      spriteID: 3e601ab3bc1fc424dbc69ca3c395f76f
+      internalID: 1691106001
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OperationInstructionSprite 1_3
+      name: OperationInstructionSprite_3
       rect:
         serializedVersion: 2
         x: 768
@@ -178,14 +178,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6c68716e9f063c4696685c368484cc4
-      internalID: 1294187898
+      spriteID: c94ef99a69e410043a4f45f3c95750e4
+      internalID: -846426815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OperationInstructionSprite 1_4
+      name: OperationInstructionSprite_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -200,8 +200,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c8809f9d2d8a4447ae328610baa3473
-      internalID: 1189626598
+      spriteID: aafe17c5d04a26341b6554021054475a
+      internalID: 1112701355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OperationInstructionSprite_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee683611177eb8459f951e6378c6454
+      internalID: 2119849656
       vertices: []
       indices: 
       edges: []
@@ -222,12 +244,12 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      M: -1165204156
-      OperationInstructionSprite 1_0: -1165204156
-      OperationInstructionSprite 1_1: 1882401520
-      OperationInstructionSprite 1_2: -1983294011
-      OperationInstructionSprite 1_3: 1294187898
-      OperationInstructionSprite 1_4: 1189626598
+      OperationInstructionSprite_0: -1990380930
+      OperationInstructionSprite_1: -166192364
+      OperationInstructionSprite_2: 1691106001
+      OperationInstructionSprite_3: -846426815
+      OperationInstructionSprite_4: 1112701355
+      OperationInstructionSprite_5: 2119849656
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
