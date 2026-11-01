@@ -24,6 +24,13 @@ class BillboardObjectManager : MonoBehaviour
 
     public void Start()
     {
+        // Labels are created at runtime. Set TMP's default before AddComponent
+        // so it does not briefly try to load the missing LiberationSans asset.
+        if (fontAsset != null)
+        {
+            TMP_Settings.defaultFontAsset = fontAsset;
+        }
+
         List<GameObject> gameObjectList = FindObjectsByType<GameObject>(FindObjectsSortMode.None).ToList();
 
         GenerateTextLabelObjectList(gameObjectList);

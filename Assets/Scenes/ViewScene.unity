@@ -300,8 +300,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40.300003, y: 21.900002}
-  m_SizeDelta: {x: 370.7, y: 440.8}
+  m_AnchoredPosition: {x: 38.2, y: 35.2}
+  m_SizeDelta: {x: 370.7, y: 492.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &55573983
 MonoBehaviour:
@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BillboardObjectManager
   mainCamera: {fileID: 748854682}
-  fontAsset: {fileID: 11400000, guid: 877f143a7cec2004d8f46f073cf1ff1f, type: 2}
+  fontAsset: {fileID: 11400000, guid: 34f6fac9f1148d146b7b73b4306e854c, type: 2}
   wcIconSprite: {fileID: 21300000, guid: d676954818d9eec4b9d1f2f3fa85a6fd, type: 3}
   sevenElevenIconSprite: {fileID: 21300000, guid: 124f4e3a4f3611e4f84fd09a0d94c2ed, type: 3}
   familyMartIconSprite: {fileID: 21300000, guid: aaca31c62304ed849976c2673ffcd2f5, type: 3}
@@ -1510,7 +1510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.7, y: 248.2}
+  m_AnchoredPosition: {x: 15.7, y: 287.4}
   m_SizeDelta: {x: 161.9, y: 43.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &639876132
@@ -2928,8 +2928,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Tab \u3067\u975E\u8868\u793A"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 877f143a7cec2004d8f46f073cf1ff1f, type: 2}
-  m_sharedMaterial: {fileID: -4159019171045233466, guid: 877f143a7cec2004d8f46f073cf1ff1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 34f6fac9f1148d146b7b73b4306e854c, type: 2}
+  m_sharedMaterial: {fileID: -8350862550290377751, guid: 34f6fac9f1148d146b7b73b4306e854c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3353,7 +3353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 102.6, y: 6.4}
+  m_AnchoredPosition: {x: 97.7, y: -1.9}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1570048688
@@ -3376,11 +3376,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<sprite=0> \u8996\u70B9\u64CD\u4F5C\n<sprite=2>\u30BA\u30FC\u30E0\n<sprite=4>
-    \u79FB\u52D5\n<sprite=3>\u4E0A\u4E0B\u79FB\u52D5\n<sprite=1>\u30EB\u30FC\u30C8\u9078\u629E\n<sprite=5>\u968E\u5C64\u9078\u629E"
+  m_text: " <sprite=0> \u8996\u70B9\u64CD\u4F5C\n <sprite=2>\u30BA\u30FC\u30E0\n
+    <sprite=4> \u79FB\u52D5\n <sprite=3>\u4E0A\u4E0B\u79FB\u52D5\n <sprite=5>\u968E\u5C64\u9078\u629E\nR   
+    \u30EB\u30FC\u30C8\u9078\u629E\nM   \u4E0A\u304B\u3089\u8868\u793A"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 877f143a7cec2004d8f46f073cf1ff1f, type: 2}
-  m_sharedMaterial: {fileID: -4159019171045233466, guid: 877f143a7cec2004d8f46f073cf1ff1f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 34f6fac9f1148d146b7b73b4306e854c, type: 2}
+  m_sharedMaterial: {fileID: -8350862550290377751, guid: 34f6fac9f1148d146b7b73b4306e854c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3989,6 +3990,7 @@ MonoBehaviour:
   - {fileID: 1077936843}
   - {fileID: 2136252754}
   - {fileID: 1238695228}
+  routeSelectButtons: []
 --- !u!1001 &1998308782
 PrefabInstance:
   m_ObjectHideFlags: 0
