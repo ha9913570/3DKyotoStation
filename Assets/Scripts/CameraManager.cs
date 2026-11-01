@@ -64,11 +64,17 @@ public class CameraManager : MonoBehaviour
             {
                 transform.position = new(0f, 260f, 0f);
                 transform.eulerAngles = new(90f, 180f, 0f);
+
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
             }
             else
             {
                 transform.position = previousMousePos;
                 transform.eulerAngles = previousMouseRotate;
+
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
             }
         }
 
