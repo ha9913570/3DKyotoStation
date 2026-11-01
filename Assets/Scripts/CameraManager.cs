@@ -17,12 +17,17 @@ public class CameraManager : MonoBehaviour
     private float mouseZoomRatio = 1f;
     private float yawAngle;
     private float pitchAngle;
+    private bool isTopView = false;
+
+    private Vector3 previousMousePos;
+    private Vector3 previousMouseRotate;
 
     private InputAction mouseMoveAction;
     private InputAction mouseScrollAction;
     private InputAction keyboardMoveAction;
     private InputAction cameraResetAction;
     private InputAction showMouseCursorAction;
+    private InputAction showTopViewAction;
 
     void Awake()
     {
@@ -31,6 +36,7 @@ public class CameraManager : MonoBehaviour
         keyboardMoveAction = InputSystem.actions.FindAction("KeyboardMove");
         cameraResetAction = InputSystem.actions.FindAction("CameraReset");
         showMouseCursorAction = InputSystem.actions.FindAction("ShowMouseCursor");
+        showTopViewAction = InputSystem.actions.FindAction("ShowTopView");
     }
 
     void Start()
@@ -51,19 +57,40 @@ public class CameraManager : MonoBehaviour
             pitchAngle = CAMERA_INITAL_ROTATE.x;
         }
 
-        if (showMouseCursorAction.IsPressed())
+        if (showTopViewAction.WasPressedThisFrame())
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            isTopView = !isTopView;
+            if (isTopView)
+            {
+                transform.position = new(0f, 260f, 0f);
+                transform.eulerAngles = new(90f, 180f, 0f);
+            }
+            else
+            {
+                transform.position = previousMousePos;
+                transform.eulerAngles = previousMouseRotate;
+            }
         }
-        else
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
 
-            CameraMoveByKeyboard();
-            CameraRotate();
-            CameraZoom();
+        if (!isTopView)
+        {
+            if (showMouseCursorAction.IsPressed())
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                previousMousePos = transform.position;
+                previousMouseRotate = transform.eulerAngles;
+
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+
+                CameraMoveByKeyboard();
+                CameraRotate();
+                CameraZoom();
+            }
         }
     }
 
