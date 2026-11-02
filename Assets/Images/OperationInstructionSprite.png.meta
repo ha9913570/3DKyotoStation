@@ -228,6 +228,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: OperationInstructionSprite_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56bc372af30bb8a48a8ee92880142c1a
+      internalID: -555869986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -250,6 +272,7 @@ TextureImporter:
       OperationInstructionSprite_3: -846426815
       OperationInstructionSprite_4: 1112701355
       OperationInstructionSprite_5: 2119849656
+      OperationInstructionSprite_6: -555869986
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

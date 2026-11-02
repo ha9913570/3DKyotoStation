@@ -3376,9 +3376,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " <sprite=0> \u8996\u70B9\u64CD\u4F5C\n <sprite=2>\u30BA\u30FC\u30E0\n
-    <sprite=4> \u79FB\u52D5\n <sprite=3>\u4E0A\u4E0B\u79FB\u52D5\n <sprite=5>\u968E\u5C64\u9078\u629E\nR   
-    \u30EB\u30FC\u30C8\u9078\u629E\nM   \u4E0A\u304B\u3089\u8868\u793A"
+  m_text: "<sprite=0>\u8996\u70B9\u64CD\u4F5C\n<sprite=2>\u30BA\u30FC\u30E0\n<sprite=4>\u79FB\u52D5\n<sprite=3>\u4E0A\u4E0B\u79FB\u52D5\n<sprite=5>\u968E\u5C64\u9078\u629E\n<sprite=1>\u30EB\u30FC\u30C8\u9078\u629E\n<sprite=6>\u4E0A\u304B\u3089\u8868\u793A"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 34f6fac9f1148d146b7b73b4306e854c, type: 2}
   m_sharedMaterial: {fileID: -8350862550290377751, guid: 34f6fac9f1148d146b7b73b4306e854c, type: 2}
@@ -3397,7 +3395,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 11400000, guid: 29678f11022c8b042b991c35272f2efe, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: 6b2bec6e38473fa48860560a57fe1ea4, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -3663,7 +3661,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "<mark=#00000040 padding=\"60, 60, 10, 10\">\u8868\u793A\u3059\u308B\u30EB\u30FC\u30C8\u3092\u9078\u629E</mark>"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 877f143a7cec2004d8f46f073cf1ff1f, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -4159019171045233466, guid: 877f143a7cec2004d8f46f073cf1ff1f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
